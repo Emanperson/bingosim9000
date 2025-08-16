@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8" />
+  <title>bingo 9000</title>
+</head>
+  <body>
+	<main>
+		<div class="glass" id="container">
+			<div class="container-content" style="opacity:1;">
+				<h1>Bingo sim 9000</h1>
+				<h2 id="currentnum">No current number</h2>
+				<button id="rollthing" onclick="play()">Roll the thing</button>
+				<br>
+				<br>
+				<br>
+				<button id="reqired" onclick="check()">
+			</div>
+		</div>
+	</main>
+		<style>* {
+	transition: all 0.8s ease;
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+html {
+	color: white;
+	background: black;
+	background-image: url("https://i.redd.it/1lu31x1angtb1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	transition: 0.5s ease;
+}
+
+body {
+	background-repeat: no-repeat;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	background-size: 100%;
+}
+
+#container {
+	padding: 30px;
+	max-width: 500px;
+	margin: 0 auto;
+	border-radius: 50px;
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-size: 36px;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+button {
+	text-align: center;
+	background-color: #f0f0f0;
+	color: black;
+	padding: 10px 20px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	border: 0px;
+	align-content: center;
+	align-self: cenmter;
+}
+
+button:hover {
+	background-color: #00aaff;
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+}
+		</style>
+		<script>function random(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+var currentnum;
+var reqnum;
+var score;
+reqnum = random(1, 99);
+document.getElementById("reqired").innerHTML = reqnum;
+function play() {
+	currentnum = random(1, 99);
+	document.getElementById("currentnum").innerHTML = currentnum;
+}
+function check() {
+	if (reqnum === currentnum) {
+		score = random(8000, 70000);
+		win();
+	} else lose();
+}
+function win() {
+	document.getElementById("reqired").hidden = true;
+	document.getElementById("rollthing").hidden = true;
+	currentnum = "you win";
+	document.getElementById("currentnum").innerHTML = currentnum;
+}
+function lose() {
+	document.getElementById("reqired").hidden = true;
+	document.getElementById("rollthing").hidden = true;
+	currentnum = "you lose";
+	document.getElementById("currentnum").innerHTML = currentnum;
+}
+		</script>
+</body>
+</html>
